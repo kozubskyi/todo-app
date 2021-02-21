@@ -1,0 +1,23 @@
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.stats__all-todos,
+.stats__important-todos,
+.stats__done-todos {
+  line-height: 1.5;
+}
+
+.stats__all-todos {
+  color: var(--grey-color);
+}
+
+.stats__important-todos {
+  color: var(--light-red-color);
+}
+
+.stats__done-todos {
+  color: var(--light-green-color);
+}
