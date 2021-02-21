@@ -1,0 +1,20 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  min-height: 80px;
+
+  text-align: center;
+
+  background-color: white;
+  border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+.logo {
+  font-size: 80px;
+  color: rgb(230, 235, 240);
+
+  text-decoration: none;
+}
