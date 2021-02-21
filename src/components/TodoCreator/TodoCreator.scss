@@ -10,7 +10,6 @@
   margin: 0;
 
   width: 100%;
-  min-height: 64px;
 
   background-color: var(--main-light-grey-color);
   border-top: 1px solid var(--grey-color);
@@ -19,12 +18,13 @@
 .todo-creator__form input {
   font-size: 16px;
   width: 100%;
+  min-height: 40px;
 
   margin: 0 10px 0 0;
-  padding: 10px;
+  padding: 0 15px;
 
   border: none;
-  border-radius: 22px;
+  border-radius: 20px;
 }
 
 .todo-creator__form button {
@@ -33,10 +33,10 @@
   color: white;
   background-color: var(--green-color);
   border: none;
-  border-radius: 22px;
+  border-radius: 20px;
 
   margin: 0;
-  padding: 10px 20px;
+  padding: 0 15px;
 
-  min-height: 43px;
+  min-height: 40px;
 }
