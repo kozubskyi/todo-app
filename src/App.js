@@ -14,8 +14,14 @@ import TodoCreator from './components/TodoCreator/TodoCreator';
 class App extends Component {
   state = {
     todos: [
-      { id: 'id-1', text: 'Test todo - standart version', type: 'standart', completed: false },
-      { id: 'id-2', text: 'Test todo - important version', type: 'important', completed: false },
+      { id: 'id-1', text: 'Test todo - important version', type: 'important', completed: false },
+      { id: 'id-2', text: 'Test todo - standart version', type: 'standart', completed: false },
+      {
+        id: 'id-3',
+        text: 'Пока есть функционал для создания только стандарной версии Todo',
+        type: 'standart',
+        completed: false,
+      },
     ],
   };
 
