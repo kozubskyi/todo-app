@@ -3,12 +3,8 @@ import React, { Component } from 'react';
 import 'reset-css';
 import './App.scss';
 
-// import Header from './components/Header/Header';
 import Stats from './components/Stats/Stats';
 import TodoList from './components/TodoList/TodoList';
-// import AddTodoButtonS from './components/AddTodoButtonS/AddTodoButtonS';
-// import AddTodoButton from './components/AddTodoButton/AddTodoButton';
-// import Modal from './components/Modal/Modal';
 import TodoCreator from './components/TodoCreator/TodoCreator';
 
 class App extends Component {
