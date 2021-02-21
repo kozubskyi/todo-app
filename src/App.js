@@ -13,7 +13,10 @@ import TodoCreator from './components/TodoCreator/TodoCreator';
 
 class App extends Component {
   state = {
-    todos: [{ id: 'sdfg', text: 'testovaya versia', type: 'standart', completed: false }],
+    todos: [
+      { id: 'id-1', text: 'Test todo - standart version', type: 'standart', completed: false },
+      { id: 'id-2', text: 'Test todo - important version', type: 'important', completed: false },
+    ],
   };
 
   componentDidMount() {
