@@ -1,3 +1,7 @@
+.todo__list {
+  line-height: 1.5;
+}
+
 .todo__item {
   position: relative;
 
@@ -5,11 +9,12 @@
   padding: 0px;
   background-color: var(--main-light-grey-color);
   border-radius: 10px;
-  font-family: Arial, Helvetica, sans-serif;
 
-  &:not(:last-child) {
-    margin-bottom: 10px;
-  }
+  margin-bottom: 10px;
+}
+
+.todo__item__important {
+  background-color: var(--light-red-color);
 }
 
 .todo__item input[type='checkbox'] {
@@ -38,18 +43,18 @@
 .todo__item label::before {
   content: '';
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 14px;
+  left: 14px;
 
   display: inline-block;
-  min-width: 12px;
-  height: 12px;
+  min-width: 1em;
+  height: 1em;
   border: 2px solid black;
   border-radius: 4px;
 }
 
 .todo__item label {
-  padding: 10px 69px 10px 34px;
+  padding: 10px 68px 10px 40px;
   width: 100%;
 }
 
@@ -60,29 +65,36 @@
   right: 0px;
 
   margin: 0;
-  padding: 13px;
 
   border: none;
   // border: 1px solid var(--grey-color);
 
   background-color: transparent;
 
-  min-width: 36px;
-  height: 36px;
+  min-width: 34px;
+  height: 44px;
 
   cursor: pointer;
 
-  background-size: 10px; // фоновая картинка уменьшается до размеров псевдоэлемента label::before (чекбокса)
+  background-size: 10px;
   background-origin: content-box; // какое пространство занимает фоновая картинка, при border-box занимает content, padding и border
   background-repeat: no-repeat;
 }
 
 .edit-todo {
-  right: 36px;
-
+  right: 34px;
+  padding: 17px 10px 17px 14px;
   background-image: url(./pencil.svg);
 }
 
 .delete-todo {
+  padding: 17px 14px 17px 10px;
   background-image: url(./cross.svg);
+}
+
+.line {
+  background-color: var(--grey-color);
+  width: 96%;
+  height: 1px;
+  margin: 0 auto 10px auto;
 }
