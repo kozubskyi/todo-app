@@ -14,7 +14,7 @@ class App extends Component {
       { id: 'id-2', text: 'Test todo - standart version', type: 'standart', completed: false },
       {
         id: 'id-3',
-        text: 'Пока есть функционал для создания только стандарной версии Todo',
+        text: 'Пока есть функционал только для создания стандарной версии Todo и пока невозможно редактирование',
         type: 'standart',
         completed: false,
       },
