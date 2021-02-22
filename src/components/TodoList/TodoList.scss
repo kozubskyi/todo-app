@@ -64,7 +64,6 @@
 .delete-todo {
   position: absolute;
   top: 0px;
-  right: 0px;
 
   margin: 0;
 
@@ -78,19 +77,20 @@
 
   cursor: pointer;
 
-  background-size: 10px;
+  background-size: 12px;
   background-origin: content-box; // какое пространство занимает фоновая картинка, при border-box занимает content, padding и border
   background-repeat: no-repeat;
 }
 
 .edit-todo {
   right: 34px;
-  padding: 17px 10px 17px 14px;
+  padding: 15px 8px 15px 12px;
   background-image: url(./pencil.svg);
 }
 
 .delete-todo {
-  padding: 17px 14px 17px 10px;
+  right: 0px;
+  padding: 15px 12px 15px 8px;
   background-image: url(./cross.svg);
 }
 
