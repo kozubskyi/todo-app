@@ -34,7 +34,7 @@
 
   &:checked + label::before {
     background-color: var(--green-color); // фоновый цвет чекбокса при input:checked
-    background-image: url(./checkmark.svg); // фоновая картинка при input:checked, по умолчанию занимает пространство content и padding
+    background-image: url(../../images/checkmark.svg); // фоновая картинка при input:checked, по умолчанию занимает пространство content и padding
     background-size: contain; // фоновая картинка уменьшается до размеров псевдоэлемента label::before (чекбокса)
     background-origin: padding-box; // какое пространство занимает фоновая картинка, при border-box занимает content, padding и border
     background-repeat: no-repeat;
@@ -85,13 +85,13 @@
 .edit-todo {
   right: 34px;
   padding: 15px 8px 15px 12px;
-  background-image: url(./pencil.svg);
+  background-image: url(../../images/pencil-big.svg);
 }
 
 .delete-todo {
   right: 0px;
   padding: 15px 12px 15px 8px;
-  background-image: url(./cross.svg);
+  background-image: url(../../images/cross.svg);
 }
 
 .line {
