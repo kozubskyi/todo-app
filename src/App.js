@@ -33,9 +33,9 @@ class App extends Component {
 
   handleFormSubmit = todo => this.setState({ todos: [todo, ...this.state.todos] });
 
-  handleTodoDelete = id => this.setState({ todos: this.state.todos.filter(todo => todo.id !== id) });
+  onTodoDelete = id => this.setState({ todos: this.state.todos.filter(todo => todo.id !== id) });
 
-  handleCompletedStatus = id => {
+  onTodoClick = id => {
     this.setState(prevState => ({
       todos: prevState.todos.map(todo => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)),
     }));
@@ -44,13 +44,12 @@ class App extends Component {
   render() {
     return (
       <>
-        {/* <Header /> */}
         <Stats todos={this.state.todos} />
         <TodoList
           todos={this.state.todos}
-          handleTodoDelete={this.handleTodoDelete}
+          onTodoDelete={this.onTodoDelete}
           handleTodoCompleting={this.handleTodoCompleting}
-          handleCompletedStatus={this.handleCompletedStatus}
+          onTodoClick={this.onTodoClick}
         />
         <TodoCreator todos={this.state.todos} handleFormSubmit={this.handleFormSubmit} />
       </>

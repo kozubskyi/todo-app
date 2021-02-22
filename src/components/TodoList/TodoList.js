@@ -16,14 +16,14 @@ class TodoList extends Component {
                 key={todo.id}
               >
                 <input type="checkbox" id={todo.id} checked={todo.completed} />
-                <label htmlFor={todo.id} onClick={() => this.props.handleCompletedStatus(todo.id)}>
+                <label htmlFor={todo.id} onClick={() => this.props.onTodoClick(todo.id)}>
                   {todo.text}
                 </label>
                 <button type="button" className="edit-todo"></button>
                 <button
                   type="button"
                   className="delete-todo"
-                  onClick={() => this.props.handleTodoDelete(todo.id)}
+                  onClick={() => this.props.onTodoDelete(todo.id)}
                 ></button>
               </li>
             );
@@ -34,14 +34,14 @@ class TodoList extends Component {
               return (
                 <li className="todo__item todo__item__important" key={todo.id}>
                   <input type="checkbox" id={todo.id} checked={todo.completed} />
-                  <label htmlFor={todo.id} onClick={() => this.props.handleCompletedStatus(todo.id)}>
+                  <label htmlFor={todo.id} onClick={() => this.props.onTodoClick(todo.id)}>
                     {todo.text}
                   </label>
                   <button type="button" className="edit-todo"></button>
                   <button
                     type="button"
                     className="delete-todo"
-                    onClick={() => this.props.handleTodoDelete(todo.id)}
+                    onClick={() => this.props.onTodoDelete(todo.id)}
                   ></button>
                 </li>
               );
@@ -53,14 +53,14 @@ class TodoList extends Component {
               return (
                 <li className="todo__item" key={todo.id}>
                   <input type="checkbox" id={todo.id} checked={todo.completed} />
-                  <label htmlFor={todo.id} onClick={() => this.props.handleCompletedStatus(todo.id)}>
+                  <label htmlFor={todo.id} onClick={() => this.props.onTodoClick(todo.id)}>
                     {todo.text}
                   </label>
                   <button type="button" className="edit-todo"></button>
                   <button
                     type="button"
                     className="delete-todo"
-                    onClick={() => this.props.handleTodoDelete(todo.id)}
+                    onClick={() => this.props.onTodoDelete(todo.id)}
                   ></button>
                 </li>
               );
@@ -72,14 +72,14 @@ class TodoList extends Component {
               return (
                 <li className="todo__item" key={todo.id}>
                   <input type="checkbox" id={todo.id} checked={todo.completed} />
-                  <label htmlFor={todo.id} onClick={() => this.props.handleCompletedStatus(todo.id)}>
+                  <label htmlFor={todo.id} onClick={() => this.props.onTodoClick(todo.id)}>
                     {todo.text}
                   </label>
                   <button type="button" className="edit-todo"></button>
                   <button
                     type="button"
                     className="delete-todo"
-                    onClick={() => this.props.handleTodoDelete(todo.id)}
+                    onClick={() => this.props.onTodoDelete(todo.id)}
                   ></button>
                 </li>
               );
