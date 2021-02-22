@@ -30,10 +30,10 @@ class TodoList extends Component {
       <>
         <div className="line"></div>
         <ul className="todo__list">
-          {this.makeMarkup(this.props.todos)}
-          {/* {this.makeMarkup(importantTodos)}
+          {/* {this.makeMarkup(this.props.todos)} */}
+          {this.makeMarkup(importantTodos)}
           {this.makeMarkup(standartTodos)}
-          {this.makeMarkup(completedTodos)} */}
+          {this.makeMarkup(completedTodos)}
         </ul>
       </>
     );

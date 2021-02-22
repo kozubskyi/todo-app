@@ -4,13 +4,19 @@ import { v4 as uuidv4 } from 'uuid';
 import './TodoCreator.scss';
 
 class TodoCreator extends Component {
-  state = {
+  static defaultProps = {
     text: '',
+    type: 'standart',
+  };
+
+  state = {
+    text: this.props.text,
+    type: this.props.type,
   };
 
   onFormSubmit = event => {
     event.preventDefault();
-    const todo = { id: uuidv4(), text: this.state.text, type: 'standart', completed: false };
+    const todo = { id: uuidv4(), text: this.state.text, type: this.state.type, completed: false };
     todo.text !== '' && this.props.handleFormSubmit(todo);
     this.formReset();
   };
