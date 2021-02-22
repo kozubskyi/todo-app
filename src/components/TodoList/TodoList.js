@@ -46,7 +46,7 @@ class TodoList extends Component {
                 </li>
               );
             })}
-          <div className="line"></div>
+          {/* <div className="line"></div> */}
           {this.props.todos
             .filter(todo => todo.type === 'standart' && !todo.completed)
             .map(todo => {
