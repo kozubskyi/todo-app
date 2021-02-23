@@ -67,7 +67,7 @@ class App extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     prevState.todos !== this.state.todos && localStorage.setItem('todos', JSON.stringify(this.state.todos));
-    localStorage.clear();
+    // localStorage.clear();
   }
 
   handleFormSubmit = todo => this.setState({ todos: [todo, ...this.state.todos] });
