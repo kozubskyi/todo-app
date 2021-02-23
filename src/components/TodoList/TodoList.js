@@ -14,6 +14,18 @@ class TodoList extends Component {
             checked={todo.completed}
           />
           <label htmlFor={todo.id}>{todo.text}</label>
+          <div className="move-todo-block">
+            <button
+              type="button"
+              className="move-todo up-todo"
+              onClick={() => this.props.upTodo(arr.indexOf(todo))}
+            ></button>
+            <button
+              type="button"
+              className="move-todo down-todo"
+              onClick={() => this.props.downTodo(arr.indexOf(todo))}
+            ></button>
+          </div>
           <button type="button" className="edit-todo"></button>
           <button type="button" className="delete-todo" onClick={() => this.props.onTodoDelete(todo.id)}></button>
         </li>
@@ -30,10 +42,10 @@ class TodoList extends Component {
       <>
         <div className="line"></div>
         <ul className="todo__list">
-          {/* {this.makeMarkup(this.props.todos)} */}
-          {this.makeMarkup(importantTodos)}
+          {this.makeMarkup(this.props.todos)}
+          {/* {this.makeMarkup(importantTodos)}
           {this.makeMarkup(standartTodos)}
-          {this.makeMarkup(completedTodos)}
+          {this.makeMarkup(completedTodos)} */}
         </ul>
       </>
     );
