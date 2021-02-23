@@ -40,7 +40,7 @@ class TodoList extends Component {
 
     return (
       <>
-        <div className="line"></div>
+        
         <ul className="todo__list">
           {this.makeMarkup(this.props.todos)}
           {/* {this.makeMarkup(importantTodos)}

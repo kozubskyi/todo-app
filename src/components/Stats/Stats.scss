@@ -21,3 +21,10 @@
 .stats__done-todos {
   color: var(--light-green-color);
 }
+
+.line {
+  background-color: var(--grey-color);
+  width: 96%;
+  height: 1px;
+  margin: 0 auto 10px auto;
+}

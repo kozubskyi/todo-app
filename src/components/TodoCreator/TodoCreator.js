@@ -12,6 +12,20 @@ class TodoCreator extends Component {
   state = {
     text: this.props.text,
     type: this.props.type,
+    placeholders: [
+      'Сходить на футбол',
+      'Купить продукты',
+      'Навестить родственников',
+      'Купить подарок',
+      'Помыть посуду',
+      'Прибраться в доме',
+      'Починить что-то в доме',
+      'Сьездить в отпуск',
+      'Отправиться в путешествие',
+      'Вынести мусор',
+      'Купить вкусняшек',
+    ],
+    // placeholder: '',
   };
 
   onFormSubmit = event => {
@@ -25,10 +39,20 @@ class TodoCreator extends Component {
 
   changeInputValue = event => this.setState({ text: event.target.value });
 
+  getRandomInRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
   render() {
     return (
       <form className="todo-creator__form" onSubmit={this.onFormSubmit}>
-        <input type="text" value={this.state.text} onChange={this.changeInputValue} autoComplete="off" />
+        <input
+          type="text"
+          value={this.state.text}
+          onChange={this.changeInputValue}
+          autoComplete="off"
+          placeholder={this.state.placeholders[this.getRandomInRange(0, this.state.placeholders.length - 1)]}
+        />
         <button type="submit">Добавить</button>
       </form>
     );
