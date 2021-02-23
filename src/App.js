@@ -81,6 +81,7 @@ class App extends Component {
       console.log(newTodos);
 
       this.setState({ todos: newTodos });
+      localStorage.setItem('todos', JSON.stringify(newTodos));
     }
   };
 
@@ -93,6 +94,7 @@ class App extends Component {
       console.log(newTodos);
 
       this.setState({ todos: newTodos });
+      localStorage.setItem('todos', JSON.stringify(newTodos));
     }
   };
 

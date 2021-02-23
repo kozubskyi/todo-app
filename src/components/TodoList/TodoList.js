@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import './TodoList.scss';
 
 class TodoList extends Component {
-  makeMarkup = arr => {
-    return arr.map(todo => {
+  makeMarkup = array => {
+    return array.map(todo => {
       return (
         <li className={todo.type === 'important' ? 'todo__item todo__item__important' : 'todo__item'} key={todo.id}>
           <input
@@ -18,12 +18,12 @@ class TodoList extends Component {
             <button
               type="button"
               className="move-todo up-todo"
-              onClick={() => this.props.upTodo(arr.indexOf(todo))}
+              onClick={() => this.props.upTodo(array.indexOf(todo))}
             ></button>
             <button
               type="button"
               className="move-todo down-todo"
-              onClick={() => this.props.downTodo(arr.indexOf(todo))}
+              onClick={() => this.props.downTodo(array.indexOf(todo))}
             ></button>
           </div>
           <button type="button" className="edit-todo"></button>
