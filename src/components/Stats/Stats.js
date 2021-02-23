@@ -6,11 +6,12 @@ const Stats = ({ todos }) => {
   return (
     <>
       <div className="stats">
-        <p className="stats__all-todos">Всего: {todos.length}</p>
-        <p className="stats__important-todos">
-          Важных: {todos.filter(todo => todo.type === 'important' && !todo.completed).length}
-        </p>
-        <p className="stats__done-todos">Выполненных: {todos.filter(todo => todo.completed).length}</p>
+        <button className="stats__btn stats__all-todos">{todos.length}</button>
+        <button className="stats__btn stats__undone-todos">{todos.filter(todo => !todo.completed).length}</button>
+        <button className="stats__btn stats__important-todos">
+          {todos.filter(todo => todo.type === 'important' && !todo.completed).length}
+        </button>
+        <button className="stats__btn stats__done-todos">{todos.filter(todo => todo.completed).length}</button>
       </div>
       <div className="line"></div>
     </>

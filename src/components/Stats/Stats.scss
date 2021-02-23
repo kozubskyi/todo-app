@@ -1,29 +1,50 @@
 .stats {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin: 10px 0;
 }
 
-.stats__all-todos,
-.stats__important-todos,
-.stats__done-todos {
+.stats__btn:not(:last-child) {
+  margin-right: 35px;
+}
+
+.stats__btn {
   line-height: 1.5;
+  text-align: left;
+
+  background-size: contain; // фоновая картинка уменьшается до размеров псевдоэлемента label::before (чекбокса)
+  background-origin: padding-box; // какое пространство занимает фоновая картинка, при border-box занимает content, padding и border
+  background-repeat: no-repeat;
+  background-color: transparent;
+
+  padding: 0 0 0 30px;
+  border: none;
+
+  font-size: 16px;
 }
 
 .stats__all-todos {
+  color: black;
+  background-image: url(../../images/todos-all.png);
+}
+
+.stats__undone-todos {
   color: var(--grey-color);
+  background-image: url(../../images/todos-undone.png);
 }
 
 .stats__important-todos {
-  color: var(--light-red-color);
+  color: var(--red-color);
+  background-image: url(../../images/todos-important.png);
 }
 
 .stats__done-todos {
-  color: var(--light-green-color);
+  color: var(--green-color);
+  background-image: url(../../images/todos-done.png);
 }
 
 .line {
-  background-color: var(--grey-color);
+  background-color: var(--light-grey-color);
   width: 96%;
   height: 1px;
   margin: 0 auto 10px auto;
