@@ -1,4 +1,4 @@
-.todo-creator__form {
+.todo-editor__form {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -18,7 +18,7 @@
   border-top: 1px solid var(--light-grey-color);
 }
 
-.todo-creator__form input {
+.todo-editor__form input {
   font-size: 16px;
   width: 100%;
   min-height: 40px;
@@ -36,7 +36,7 @@
   }
 }
 
-.todo-creator__form button {
+.todo-editor__form button {
   font-size: 16px;
 
   color: white;

@@ -1,21 +1,35 @@
-.todo__list {
-  line-height: 1.5;
-}
-
 .todo__item {
   position: relative;
 
   display: flex;
   padding: 0px;
-  background-color: var(--main-light-grey-color);
+  // background-color: var(--main-light-grey-color);
   border-radius: 10px;
 
+  line-height: 1.5;
   min-height: 44px;
 
-  margin-bottom: 10px;
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  // animation: scale-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 }
 
-.todo__item__important {
+// @keyframes scale-in {
+//   from {
+//     transform: scale(0);
+//   }
+//   to {
+//     transform: scale(1);
+//   }
+// }
+
+.todo__item.standart {
+  background-color: var(--main-light-grey-color);
+}
+
+.todo__item.important {
   background-color: var(--light-red-color);
 }
 
@@ -58,6 +72,8 @@
 .todo__item label {
   padding: 10px 90px 10px 40px;
   width: 100%;
+
+  cursor: pointer;
 }
 
 .move-todo-block {
@@ -129,4 +145,21 @@
   background-size: 10px;
   padding: 17px 14px 17px 6px;
   background-image: url(../../images/cross.svg);
+}
+
+//* Стили от CSSTransition
+
+.item-enter {
+  opacity: 0;
+}
+.item-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.item-exit {
+  opacity: 1;
+}
+.item-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
 }

@@ -15,13 +15,19 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
-  padding: 0px 0 64px 0;
+  padding: 0px 0 61px 0;
+
+  min-height: 100%;
 }
 
 #root {
-  padding: 0 10px;
+  padding: 10px;
   max-width: 540px;
   margin-right: auto;
   margin-left: auto;
