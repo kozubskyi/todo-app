@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './Stats.scss';
+import './Header.scss';
 
-const Stats = ({ todos, filterTodos }) => {
+const Header = ({ todos, filterTodos }) => {
   return (
     <header>
       <div className="stats">
@@ -18,4 +18,4 @@ const Stats = ({ todos, filterTodos }) => {
   );
 };
 
-export default Stats;
+export default Header;

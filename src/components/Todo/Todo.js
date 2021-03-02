@@ -10,7 +10,20 @@ const Todo = ({ todos, upTodo, downTodo, handleTodoEdit, handleTodoDelete, onTod
       return (
         <li className={`todo__item ${todo.type}`} key={todo.id}>
           <input type="checkbox" id={todo.id} onChange={() => onTodoClick(todo.id)} checked={todo.completed} />
-          <label htmlFor={todo.id}>{todo.text}</label>
+          <label htmlFor={todo.id}>
+            {todo.type === 'very-important' ? (
+              <span className="emoji very-important" role="img">
+                ‼️
+              </span>
+            ) : (
+              todo.type === 'important' && (
+                <span className="emoji important" role="img">
+                  ❗️
+                </span>
+              )
+            )}
+            {todo.text}
+          </label>
           <div className="move-todo-block">
             <button type="button" className="move-todo up-todo" onClick={() => upTodo(array.indexOf(todo))}></button>
             <button
@@ -39,64 +52,5 @@ const Todo = ({ todos, upTodo, downTodo, handleTodoEdit, handleTodoDelete, onTod
     </>
   );
 };
-
-//* Todo написанная классом
-
-// class Todo extends Component {
-//   componentDidMount() {
-//     console.log('componentDidMount');
-//   }
-
-//   componentWillUnmount() {
-//     console.log('componentWillUnmount');
-//   }
-
-//   makeMarkup = array => {
-//     return array.map(todo => {
-
-//       return (
-//         <li className={`todo__item ${todo.type}`} key={todo.id}>
-//           <input
-//             type="checkbox"
-//             id={todo.id}
-//             onChange={() => this.props.onTodoClick(todo.id)}
-//             checked={todo.completed}
-//           />
-//           <label htmlFor={todo.id}>{todo.text}</label>
-//           <div className="move-todo-block">
-//             <button
-//               type="button"
-//               className="move-todo up-todo"
-//               onClick={() => this.props.upTodo(array.indexOf(todo))}
-//             ></button>
-//             <button
-//               type="button"
-//               className="move-todo down-todo"
-//               onClick={() => this.props.downTodo(array.indexOf(todo))}
-//             ></button>
-//           </div>
-//           <button type="button" className="edit-todo"></button>
-//           <button type="button" className="delete-todo" onClick={() => this.props.handleTodoDelete(todo.id)}></button>
-//         </li>
-//       );
-//     });
-//   };
-
-//   render() {
-//     // const importantTodos = this.props.todos.filter(todo => todo.type === 'important' && !todo.completed);
-//     // const standartTodos = this.props.todos.filter(todo => todo.type === 'standart' && !todo.completed);
-//     // const completedTodos = this.props.todos.filter(todo => todo.completed);
-
-//     return (
-//       <>
-//         {this.makeMarkup(this.props.todos)}
-
-//         {/* {this.makeMarkup(importantTodos)}
-//           {this.makeMarkup(standartTodos)}
-//           {this.makeMarkup(completedTodos)} */}
-//       </>
-//     );
-//   }
-// }
 
 export default Todo;
