@@ -9,8 +9,8 @@
   line-height: 1.5;
   min-height: 44px;
 
-  &:not(:last-child) {
-    margin-bottom: 10px;
+  &:not(:first-child) {
+    margin-top: 10px;
   }
 
   // animation: scale-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
@@ -38,7 +38,6 @@
   -moz-appearance: none;
   appearance: none;
   visibility: hidden;
-
   position: absolute;
 
   &:checked + label {
@@ -49,8 +48,8 @@
   &:checked + label::before {
     background-color: var(--green-color); // фоновый цвет чекбокса при input:checked
     background-image: url(../../images/checkmark.svg); // фоновая картинка при input:checked, по умолчанию занимает пространство content и padding
-    background-size: contain; // фоновая картинка уменьшается до размеров псевдоэлемента label::before (чекбокса)
     background-origin: padding-box; // какое пространство занимает фоновая картинка, при border-box занимает content, padding и border
+    background-size: contain; // фоновая картинка уменьшается до размеров псевдоэлемента label::before (чекбокса)
     background-repeat: no-repeat;
     border-color: transparent;
   }
@@ -63,7 +62,7 @@
   left: 14px;
 
   display: inline-block;
-  min-width: 1em;
+  width: 1em;
   height: 1em;
   border: 2px solid black;
   border-radius: 4px;
@@ -87,7 +86,7 @@
 
 .move-todo {
   margin: 0;
-  min-width: 30px;
+  width: 30px;
   height: 22px;
 
   background-color: transparent;
@@ -103,12 +102,12 @@
 }
 
 .up-todo {
-  padding: 8px 5px 0 13px;
+  padding: 8px 0 0 13px;
   background-image: url(../../images/up-arrow.svg);
 }
 
 .down-todo {
-  padding: 2px 5px 0px 13px;
+  padding: 2px 0 0 13px;
   background-image: url(../../images/down-arrow.svg);
 }
 

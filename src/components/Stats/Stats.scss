@@ -1,7 +1,17 @@
 .stats {
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
+  text-align: center;
   margin: 0 0 10px 0;
+
+  &::after {
+    content: '';
+    display: block;
+    background-color: var(--light-grey-color);
+    width: 96%;
+    height: 1px;
+    margin: 10px auto;
+  }
 }
 
 .stats__btn:not(:last-child) {
@@ -41,11 +51,4 @@
 .stats__done-todos {
   color: var(--green-color);
   background-image: url(../../images/todos-done.png);
-}
-
-.line {
-  background-color: var(--light-grey-color);
-  width: 96%;
-  height: 1px;
-  margin: 0 auto 10px auto;
 }
