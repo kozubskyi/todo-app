@@ -2,9 +2,9 @@ import React from 'react';
 
 import './Stats.scss';
 
-const Stats = ({ todos }) => {
+const Stats = ({ todos, filterTodos }) => {
   return (
-    <>
+    <header>
       <div className="stats">
         <button className="stats__btn stats__all-todos">{todos.length}</button>
         <button className="stats__btn stats__undone-todos">{todos.filter(todo => !todo.completed).length}</button>
@@ -13,7 +13,10 @@ const Stats = ({ todos }) => {
         </button> */}
         <button className="stats__btn stats__done-todos">{todos.filter(todo => todo.completed).length}</button>
       </div>
-    </>
+      <button className="button filter-btn" type="button" onClick={filterTodos}>
+        Фильтровать
+      </button>
+    </header>
   );
 };
 

@@ -44,7 +44,9 @@ const TodoCreator = ({ todos, handleFormSubmit }) => {
         autoComplete="off"
         placeholder={placeholders[getRandomInRange(0, placeholders.length - 1)]}
       />
-      <button type="submit">Добавить</button>
+      <button className="button" type="submit">
+        Добавить
+      </button>
     </form>
   );
 };

@@ -16,7 +16,9 @@ const TodoEditor = ({ todoText, handleTodoTextEdit, closeEditingForm }) => {
   return (
     <form className="todo-editor__form" onSubmit={onFormSubmit}>
       <input type="text" value={text} onChange={changeInputValue} autoComplete="off" autoFocus />
-      <button type="submit">Редактировать</button>
+      <button className="button" type="submit">
+        Редактировать
+      </button>
     </form>
   );
 };
