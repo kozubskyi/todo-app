@@ -13,9 +13,7 @@ const Stats = ({ todos, filterTodos }) => {
         </button> */}
         <button className="stats__btn stats__done-todos">{todos.filter(todo => todo.completed).length}</button>
       </div>
-      <button className="button filter-btn" type="button" onClick={filterTodos}>
-        Фильтровать
-      </button>
+      <button className="filter-btn" type="button" onClick={filterTodos}></button>
     </header>
   );
 };

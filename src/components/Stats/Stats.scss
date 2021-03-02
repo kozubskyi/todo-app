@@ -6,7 +6,7 @@ header {
     content: '';
     display: block;
     background-color: var(--light-grey-color);
-    width: 100%;
+    width: 96%;
     height: 1px;
     margin: 10px auto;
   }
@@ -16,15 +16,11 @@ header {
   display: inline-block;
   text-align: center;
 
-  padding-top: 8px;
-}
-
-.filter-btn {
-  margin-left: auto;
+  margin-left: 10px;
 }
 
 .stats__btn:not(:last-child) {
-  margin-right: 35px;
+  margin-right: 25px;
 }
 
 .stats__btn {
@@ -52,12 +48,26 @@ header {
   background-image: url(../../images/todos-undone.png);
 }
 
-.stats__important-todos {
-  color: var(--red-color);
-  background-image: url(../../images/todos-important.png);
-}
+// .stats__important-todos {
+//   color: var(--red-color);
+//   background-image: url(../../images/todos-important.png);
+// }
 
 .stats__done-todos {
   color: var(--green-color);
   background-image: url(../../images/todos-done.png);
+}
+
+.filter-btn {
+  width: 24px;
+  height: 24px;
+  margin: 0 10px 0 auto;
+  padding: 0;
+
+  background-image: url(../../images/filter.svg);
+  background-origin: content-box; // какое пространство занимает фоновая картинка, при border-box занимает content, padding и border
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
 }
