@@ -1,8 +1,4 @@
-import React, { Component } from 'react';
-
 import './Todo.scss';
-
-//* Todo как обычная функция (переписанная на хуки)
 
 const Todo = ({ todos, handleTodoClick, upTodo, downTodo, handleEditBtnClick, handleDeleteBtnClick }) => {
   const makeMarkup = array => {

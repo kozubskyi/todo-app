@@ -52,11 +52,13 @@ const App = () => {
   }, [todos]);
 
   const handleTodoCreating = todo => {
-    setTodos([todo, ...todos]);
+    setTodos(sortTodos([todo, ...todos]));
   };
 
   const handleTodoClick = id => {
-    setTodos(prevTodos => prevTodos.map(todo => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)));
+    setTodos(prevTodos =>
+      sortTodos(prevTodos.map(todo => (todo.id === id ? { ...todo, completed: !todo.completed } : todo))),
+    );
   };
 
   const upTodo = index => {
@@ -66,7 +68,7 @@ const App = () => {
       newTodos.splice(index, 1);
       newTodos.splice(index - 1, 0, clickedTodo);
       // console.log(newTodos);
-      setTodos(newTodos);
+      setTodos(sortTodos([...newTodos]));
       localStorage.setItem('todos', JSON.stringify(newTodos));
     }
   };
@@ -78,7 +80,7 @@ const App = () => {
       newTodos.splice(index, 1);
       newTodos.splice(index + 1, 0, clickedTodo);
       // console.log(newTodos);
-      setTodos(newTodos);
+      setTodos(sortTodos([...newTodos]));
       localStorage.setItem('todos', JSON.stringify(newTodos));
     }
   };
@@ -99,20 +101,20 @@ const App = () => {
   };
 
   const handleDeleteBtnClick = id => {
-    setTodos(todos.filter(todo => todo.id !== id));
+    setTodos(sortTodos(todos.filter(todo => todo.id !== id)));
   };
 
-  const filterTodos = () => {
+  const sortTodos = todos => {
     const veryImportantTodos = todos.filter(todo => todo.type === 'very-important' && !todo.completed);
     const importantTodos = todos.filter(todo => todo.type === 'important' && !todo.completed);
     const standartTodos = todos.filter(todo => todo.type === 'standart' && !todo.completed);
     const completedTodos = todos.filter(todo => todo.completed);
-    setTodos([...veryImportantTodos, ...importantTodos, ...standartTodos, ...completedTodos]);
+    return [...veryImportantTodos, ...importantTodos, ...standartTodos, ...completedTodos];
   };
 
   return (
     <>
-      <Header todos={todos} /* filterTodos={filterTodos} */ />
+      <Header todos={todos} /* sortTodos={sortTodos} */ />
       <TodoList todos={todos}>
         <Todo
           todos={todos}
