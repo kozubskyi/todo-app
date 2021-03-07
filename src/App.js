@@ -15,13 +15,13 @@ class App extends Component {
     todos: [
       {
         id: 'id-1',
-        text: 'Это очень важная Todo. Очень важные Todo выделены красным цветом и двумя знаками восклицания.',
+        text: 'Это очень важная Todo. Очень важные Todo выделены ярко-голубым цветом и двумя знаками восклицания.',
         type: 'very-important',
         completed: false,
       },
       {
         id: 'id-2',
-        text: 'Это важная Todo. Важные Todo выделены желтым цветом и одним знаком восклицания.',
+        text: 'Это важная Todo. Важные Todo выделены тускло-голубым цветом и одним знаком восклицания.',
         type: 'important',
         completed: false,
       },
@@ -39,6 +39,7 @@ class App extends Component {
       },
     ],
     todoToUpdateText: '',
+    todoToUpdateType: '',
     todoToUpdateId: '',
     isTodoEditing: false,
   };
@@ -81,11 +82,12 @@ class App extends Component {
     }
   };
 
-  handleTodoEdit = (text, id) => this.setState({ todoToUpdateText: text, todoToUpdateId: id, isTodoEditing: true });
+  handleTodoEdit = (text, type, id) =>
+    this.setState({ todoToUpdateText: text, todoToUpdateType: type, todoToUpdateId: id, isTodoEditing: true });
 
-  handleTodoTextEdit = text => {
+  handleTodoTextEdit = (text, type) => {
     this.setState(prevState => ({
-      todos: prevState.todos.map(todo => (todo.id === this.state.todoToUpdateId ? { ...todo, text } : todo)),
+      todos: prevState.todos.map(todo => (todo.id === this.state.todoToUpdateId ? { ...todo, text, type } : todo)),
     }));
   };
 
@@ -125,11 +127,12 @@ class App extends Component {
             onTodoClick={this.onTodoClick}
           />
         </TodoList>
-        {!this.state.isTodoEditing && <TodoCreator todos={this.state.todos} handleFormSubmit={this.handleFormSubmit} />}
-        {this.state.isTodoEditing && <Backdrop closeEditingForm={this.closeEditingForm} />}
-        {this.state.isTodoEditing && (
+        {!this.state.isTodoEditing ? (
+          <TodoCreator todos={this.state.todos} handleFormSubmit={this.handleFormSubmit} />
+        ) : (
           <TodoEditor
             todoText={this.state.todoToUpdateText}
+            todoType={this.state.todoToUpdateType}
             handleTodoTextEdit={this.handleTodoTextEdit}
             closeEditingForm={this.closeEditingForm}
           />

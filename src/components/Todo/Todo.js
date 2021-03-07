@@ -32,7 +32,11 @@ const Todo = ({ todos, upTodo, downTodo, handleTodoEdit, handleTodoDelete, onTod
               onClick={() => downTodo(array.indexOf(todo))}
             ></button>
           </div>
-          <button type="button" className="edit-todo" onClick={() => handleTodoEdit(todo.text, todo.id)}></button>
+          <button
+            type="button"
+            className="edit-todo"
+            onClick={() => handleTodoEdit(todo.text, todo.type, todo.id)}
+          ></button>
           <button type="button" className="delete-todo" onClick={() => handleTodoDelete(todo.id)}></button>
         </li>
       );

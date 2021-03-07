@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TodoList = ({ todos, children }) => {
+const TodoList = ({ children }) => {
   return <ul className="todo__list">{children}</ul>;
 };
 
