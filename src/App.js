@@ -37,28 +37,38 @@ import Backdrop from './components/Backdrop/Backdrop';
 
 const App = () => {
   const [todos, setTodos] = useState([]);
+  const [editingTodo, setEditingTodo] = useState({});
   const [isTodoEditing, setIsTodoEditing] = useState(false);
-  const [todoToUpdateText, setTodoToUpdateText] = useState('');
-  const [todoToUpdateType, setTodoToUpdateType] = useState('');
-  const [todoToUpdateId, setTodoToUpdateId] = useState('');
 
+  // componentDidMount()
   useEffect(() => {
     const localStorageTodos = JSON.parse(localStorage.getItem('todos'));
     localStorageTodos && setTodos(localStorageTodos);
   }, []);
 
+  // componentDidUpdate(prevProps, prevState = todos)
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
     // localStorage.clear();
   }, [todos]);
 
-  const handleTodoCreating = todo => {
-    setTodos(sortTodos([todo, ...todos]));
+  const sortTodos = allTodos => {
+    const veryImportantTodos = allTodos.filter(todo => todo.type === 'very-important' && !todo.completed);
+    const importantTodos = allTodos.filter(todo => todo.type === 'important' && !todo.completed);
+    const standartTodos = allTodos.filter(todo => todo.type === 'standart' && !todo.completed);
+    const completedTodos = allTodos.filter(todo => todo.completed);
+    return [...veryImportantTodos, ...importantTodos, ...standartTodos, ...completedTodos];
   };
 
-  const handleTodoClick = id => {
+  const handleTodoCreating = createdTodo => {
+    setTodos(sortTodos([createdTodo, ...todos]));
+  };
+
+  const handleTodoClick = clickedTodo => {
     setTodos(prevTodos => {
-      const newTodos = prevTodos.map(todo => (todo.id === id ? { ...todo, completed: !todo.completed } : todo));
+      const newTodos = prevTodos.map(todo =>
+        todo.id === clickedTodo.id ? { ...clickedTodo, completed: !clickedTodo.completed } : todo,
+      );
       return sortTodos(newTodos);
     });
   };
@@ -87,35 +97,26 @@ const App = () => {
     }
   };
 
-  const handleEditBtnClick = (text, type, id) => {
+  const handleEditBtnClick = todoToUpdate => {
     setIsTodoEditing(true);
-    setTodoToUpdateText(text);
-    setTodoToUpdateType(type);
-    setTodoToUpdateId(id);
+    setEditingTodo(todoToUpdate);
   };
 
-  const handleTodoEdit = (text, type) => {
+  const handleTodoEdit = updatedTodo => {
     setTodos(prevTodos => {
-      const newTodos = prevTodos.map(todo => (todo.id === todoToUpdateId ? { ...todo, text, type } : todo));
+      const newTodos = prevTodos.map(todo => (todo.id === updatedTodo.id ? updatedTodo : todo));
       return sortTodos(newTodos);
     });
+    closeEditingForm();
   };
 
   const closeEditingForm = () => {
     setIsTodoEditing(false);
   };
 
-  const handleDeleteBtnClick = id => {
-    const newTodos = todos.filter(todo => todo.id !== id);
+  const handleDeleteBtnClick = todoToDelete => {
+    const newTodos = todos.filter(todo => todo.id !== todoToDelete.id);
     setTodos(sortTodos(newTodos));
-  };
-
-  const sortTodos = todos => {
-    const veryImportantTodos = todos.filter(todo => todo.type === 'very-important' && !todo.completed);
-    const importantTodos = todos.filter(todo => todo.type === 'important' && !todo.completed);
-    const standartTodos = todos.filter(todo => todo.type === 'standart' && !todo.completed);
-    const completedTodos = todos.filter(todo => todo.completed);
-    return [...veryImportantTodos, ...importantTodos, ...standartTodos, ...completedTodos];
   };
 
   return (
@@ -131,16 +132,11 @@ const App = () => {
           handleDeleteBtnClick={handleDeleteBtnClick}
         />
       </TodoList>
-      <Backdrop closeEditingForm={closeEditingForm} isTodoEditing={isTodoEditing} />
+      <Backdrop isTodoEditing={isTodoEditing} closeEditingForm={closeEditingForm} />
       {!isTodoEditing ? (
         <TodoCreator handleTodoCreating={handleTodoCreating} />
       ) : (
-        <TodoEditor
-          todoText={todoToUpdateText}
-          todoType={todoToUpdateType}
-          handleTodoEdit={handleTodoEdit}
-          closeEditingForm={closeEditingForm}
-        />
+        <TodoEditor editingTodo={editingTodo} handleTodoEdit={handleTodoEdit} />
       )}
     </>
   );

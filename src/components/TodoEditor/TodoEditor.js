@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import './TodoEditor.scss';
 
-const TodoEditor = ({ children, todoText, todoType, handleTodoEdit, closeEditingForm }) => {
-  const [text, setText] = useState(todoText);
-  const [type, setType] = useState(todoType);
+const TodoEditor = ({ editingTodo, handleTodoEdit }) => {
+  const [text, setText] = useState(editingTodo.text);
+  const [type, setType] = useState(editingTodo.type);
 
   const changeInputValue = event => setText(event.target.value);
 
   const onFormSubmit = event => {
     event.preventDefault();
-    text && handleTodoEdit(text, type);
-    closeEditingForm();
+    const updatedTodo = { id: editingTodo.id, text, type, completed: editingTodo.completed };
+    text && handleTodoEdit(updatedTodo);
   };
 
   const changeTodoType = event => {

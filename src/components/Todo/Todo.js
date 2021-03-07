@@ -5,7 +5,7 @@ const Todo = ({ todos, handleTodoClick, upTodo, downTodo, handleEditBtnClick, ha
     return array.map(todo => {
       return (
         <li className={`todo__item ${todo.type}`} key={todo.id}>
-          <input type="checkbox" id={todo.id} onChange={() => handleTodoClick(todo.id)} checked={todo.completed} />
+          <input type="checkbox" id={todo.id} onChange={() => handleTodoClick(todo)} checked={todo.completed} />
           <label htmlFor={todo.id}>
             {todo.type === 'very-important' ? (
               <span className="emoji very-important" role="img">
@@ -31,9 +31,9 @@ const Todo = ({ todos, handleTodoClick, upTodo, downTodo, handleEditBtnClick, ha
           <button
             type="button"
             className="edit-todo"
-            onClick={() => handleEditBtnClick(todo.text, todo.type, todo.id)}
+            onClick={() => handleEditBtnClick(todo)}
           ></button>
-          <button type="button" className="delete-todo" onClick={() => handleDeleteBtnClick(todo.id)}></button>
+          <button type="button" className="delete-todo" onClick={() => handleDeleteBtnClick(todo)}></button>
         </li>
       );
     });

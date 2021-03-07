@@ -1,7 +1,7 @@
 import { CSSTransition } from 'react-transition-group';
 import './Backdrop.scss';
 
-const Backdrop = ({ closeEditingForm, isTodoEditing }) => {
+const Backdrop = ({ isTodoEditing, closeEditingForm }) => {
   const body = document.querySelector('body');
 
   return (
