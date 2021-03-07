@@ -1,0 +1,43 @@
+.backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(4px);
+
+  max-width: 540px;
+  margin-right: auto;
+  margin-left: auto;
+
+  // animation: backdrop-opacity 200ms;
+}
+
+// @keyframes backdrop-opacity {
+//   from {
+//     opacity: 0;
+//   }
+//   to {
+//     opacity: 1;
+//   }
+// }
+
+// Animations CCSTransition
+
+.backdrop-enter {
+  opacity: 0;
+}
+
+.backdrop-enter-active {
+  opacity: 1;
+  transition: opacity 500ms linear;
+}
+
+.backdrop-exit {
+  opacity: 1;
+}
+
+.backdrop-exit-active {
+  opacity: 0;
+  transition: opacity 500ms linear;
+}

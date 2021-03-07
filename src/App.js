@@ -6,6 +6,7 @@ import TodoList from './components/TodoList/TodoList';
 import Todo from './components/Todo/Todo';
 import TodoCreator from './components/TodoCreator/TodoCreator';
 import TodoEditor from './components/TodoEditor/TodoEditor';
+import Backdrop from './components/Backdrop/Backdrop';
 
 // const defaultTodos = [
 //   {
@@ -36,10 +37,10 @@ import TodoEditor from './components/TodoEditor/TodoEditor';
 
 const App = () => {
   const [todos, setTodos] = useState([]);
+  const [isTodoEditing, setIsTodoEditing] = useState(false);
   const [todoToUpdateText, setTodoToUpdateText] = useState('');
   const [todoToUpdateType, setTodoToUpdateType] = useState('');
   const [todoToUpdateId, setTodoToUpdateId] = useState('');
-  const [isTodoEditing, setIsTodoEditing] = useState(false);
 
   useEffect(() => {
     const localStorageTodos = JSON.parse(localStorage.getItem('todos'));
@@ -56,9 +57,10 @@ const App = () => {
   };
 
   const handleTodoClick = id => {
-    setTodos(prevTodos =>
-      sortTodos(prevTodos.map(todo => (todo.id === id ? { ...todo, completed: !todo.completed } : todo))),
-    );
+    setTodos(prevTodos => {
+      const newTodos = prevTodos.map(todo => (todo.id === id ? { ...todo, completed: !todo.completed } : todo));
+      return sortTodos(newTodos);
+    });
   };
 
   const upTodo = index => {
@@ -86,14 +88,17 @@ const App = () => {
   };
 
   const handleEditBtnClick = (text, type, id) => {
+    setIsTodoEditing(true);
     setTodoToUpdateText(text);
     setTodoToUpdateType(type);
     setTodoToUpdateId(id);
-    setIsTodoEditing(true);
   };
 
   const handleTodoEdit = (text, type) => {
-    setTodos(prevTodos => sortTodos(prevTodos.map(todo => (todo.id === todoToUpdateId ? { ...todo, text, type } : todo))));
+    setTodos(prevTodos => {
+      const newTodos = prevTodos.map(todo => (todo.id === todoToUpdateId ? { ...todo, text, type } : todo));
+      return sortTodos(newTodos);
+    });
   };
 
   const closeEditingForm = () => {
@@ -101,7 +106,8 @@ const App = () => {
   };
 
   const handleDeleteBtnClick = id => {
-    setTodos(sortTodos(todos.filter(todo => todo.id !== id)));
+    const newTodos = todos.filter(todo => todo.id !== id);
+    setTodos(sortTodos(newTodos));
   };
 
   const sortTodos = todos => {
@@ -114,8 +120,8 @@ const App = () => {
 
   return (
     <>
-      <Header todos={todos} /* sortTodos={sortTodos} */ />
-      <TodoList todos={todos}>
+      <Header todos={todos} />
+      <TodoList>
         <Todo
           todos={todos}
           handleTodoClick={handleTodoClick}
@@ -125,6 +131,7 @@ const App = () => {
           handleDeleteBtnClick={handleDeleteBtnClick}
         />
       </TodoList>
+      <Backdrop closeEditingForm={closeEditingForm} isTodoEditing={isTodoEditing} />
       {!isTodoEditing ? (
         <TodoCreator handleTodoCreating={handleTodoCreating} />
       ) : (

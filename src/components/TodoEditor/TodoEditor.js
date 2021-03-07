@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './TodoEditor.scss';
-import Backdrop from './Backdrop/Backdrop';
 
-const TodoEditor = ({ todoText, todoType, handleTodoEdit, closeEditingForm }) => {
+const TodoEditor = ({ children, todoText, todoType, handleTodoEdit, closeEditingForm }) => {
   const [text, setText] = useState(todoText);
   const [type, setType] = useState(todoType);
 
@@ -10,7 +9,7 @@ const TodoEditor = ({ todoText, todoType, handleTodoEdit, closeEditingForm }) =>
 
   const onFormSubmit = event => {
     event.preventDefault();
-    handleTodoEdit(text, type);
+    text && handleTodoEdit(text, type);
     closeEditingForm();
   };
 
@@ -22,7 +21,6 @@ const TodoEditor = ({ todoText, todoType, handleTodoEdit, closeEditingForm }) =>
 
   return (
     <>
-      <Backdrop closeEditingForm={closeEditingForm} />
       <form className="todo-editor__form" onSubmit={onFormSubmit}>
         <button className="todo-type-btn" type="button" value={type} onClick={changeTodoType}>
           {type === 'very-important' ? '!!' : type === 'important' && '!'}
@@ -30,6 +28,7 @@ const TodoEditor = ({ todoText, todoType, handleTodoEdit, closeEditingForm }) =>
         <input type="text" value={text} onChange={changeInputValue} autoComplete="off" autoFocus />
         <button className="edit-todo-btn" type="submit"></button>
       </form>
+      )
     </>
   );
 };

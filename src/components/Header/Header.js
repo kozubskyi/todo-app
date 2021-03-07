@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Header.scss';
 
-const Header = ({ todos /*sortTodos*/ }) => {
+const Header = ({ todos }) => {
   return (
     <header>
       <div className="stats">
@@ -13,7 +13,6 @@ const Header = ({ todos /*sortTodos*/ }) => {
         </button> */}
         <button className="stats__btn stats__done-todos">{todos.filter(todo => todo.completed).length}</button>
       </div>
-      {/* <button className="filter-btn" type="button" onClick={sortTodos}></button> */}
     </header>
   );
 };
