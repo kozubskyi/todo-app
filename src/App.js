@@ -93,7 +93,7 @@ const App = () => {
   };
 
   const handleTodoEdit = (text, type) => {
-    setTodos(prevTodos => prevTodos.map(todo => (todo.id === todoToUpdateId ? { ...todo, text, type } : todo)));
+    setTodos(prevTodos => sortTodos(prevTodos.map(todo => (todo.id === todoToUpdateId ? { ...todo, text, type } : todo))));
   };
 
   const closeEditingForm = () => {
