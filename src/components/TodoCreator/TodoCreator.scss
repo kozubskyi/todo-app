@@ -14,8 +14,8 @@
 
   width: 100%;
 
-  background-color: var(--main-light-grey-color);
-  // border-top: 1px solid var(--light-grey-color);
+  background-color: white;
+  border-top: 1px solid var(--light-grey-color);
 }
 
 .todo-creator__form input {
@@ -28,6 +28,7 @@
 
   border: none;
   border-radius: 20px;
+  background-color: var(--main-light-grey-color);
 
   outline: none;
 
@@ -37,11 +38,17 @@
 }
 
 .todo-type-btn {
-  min-width: 24px;
-  height: 24px;
+  min-width: 30px;
+  height: 30px;
   margin-right: 10px;
-  border: 1px solid var(--light-grey-color);
+  padding: 0;
+  border: none;
+  // border: 1px solid var(--light-grey-color);
   border-radius: 50%;
+
+  font-size: 20px;
+  font-weight: 900;
+  color: red;
 
   &[value='standart'] {
     background-color: var(--main-light-grey-color);

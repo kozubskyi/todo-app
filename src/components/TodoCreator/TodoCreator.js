@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import './TodoCreator.scss';
 
-const TodoCreator = ({ todos, handleFormSubmit }) => {
+const TodoCreator = ({ handleTodoCreating }) => {
   const [text, setText] = useState('');
   const [type, setType] = useState('standart');
-  const [placeholders, setPlaceholders] = useState([
+  const [placeholders, _] = useState([
     'Сходить на футбол',
     'Купить продукты',
     'Навестить родственников',
@@ -23,17 +23,18 @@ const TodoCreator = ({ todos, handleFormSubmit }) => {
   const onFormSubmit = event => {
     event.preventDefault();
     const todo = { id: uuidv4(), text, type, completed: false };
-    todo.text !== '' && handleFormSubmit(todo);
+    todo.text && handleTodoCreating(todo);
     formReset();
   };
 
-  const formReset = () => setText('');
+  const formReset = () => {
+    setText('');
+    setType('standart');
+  };
 
   const changeInputValue = event => setText(event.target.value);
 
-  const getRandomInRange = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  };
+  const getRandomInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
   const changeTodoType = event => {
     event.target.value === 'standart' && setType('important');
@@ -43,7 +44,9 @@ const TodoCreator = ({ todos, handleFormSubmit }) => {
 
   return (
     <form className="todo-creator__form" onSubmit={onFormSubmit}>
-      <button className="todo-type-btn" type="button" value={type} onClick={changeTodoType}></button>
+      <button className="todo-type-btn" type="button" value={type} onClick={changeTodoType}>
+        {type === 'very-important' ? '!!' : type === 'important' && '!'}
+      </button>
       <input
         type="text"
         value={text}

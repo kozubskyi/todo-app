@@ -4,21 +4,21 @@ import './Todo.scss';
 
 //* Todo как обычная функция (переписанная на хуки)
 
-const Todo = ({ todos, upTodo, downTodo, handleTodoEdit, handleTodoDelete, onTodoClick }) => {
+const Todo = ({ todos, handleTodoClick, upTodo, downTodo, handleEditBtnClick, handleDeleteBtnClick }) => {
   const makeMarkup = array => {
     return array.map(todo => {
       return (
         <li className={`todo__item ${todo.type}`} key={todo.id}>
-          <input type="checkbox" id={todo.id} onChange={() => onTodoClick(todo.id)} checked={todo.completed} />
+          <input type="checkbox" id={todo.id} onChange={() => handleTodoClick(todo.id)} checked={todo.completed} />
           <label htmlFor={todo.id}>
             {todo.type === 'very-important' ? (
               <span className="emoji very-important" role="img">
-                ‼️
+                ‼️ {/*! !*/}
               </span>
             ) : (
               todo.type === 'important' && (
                 <span className="emoji important" role="img">
-                  ❗️
+                  ❗️ {/*!*/}
                 </span>
               )
             )}
@@ -35,9 +35,9 @@ const Todo = ({ todos, upTodo, downTodo, handleTodoEdit, handleTodoDelete, onTod
           <button
             type="button"
             className="edit-todo"
-            onClick={() => handleTodoEdit(todo.text, todo.type, todo.id)}
+            onClick={() => handleEditBtnClick(todo.text, todo.type, todo.id)}
           ></button>
-          <button type="button" className="delete-todo" onClick={() => handleTodoDelete(todo.id)}></button>
+          <button type="button" className="delete-todo" onClick={() => handleDeleteBtnClick(todo.id)}></button>
         </li>
       );
     });
