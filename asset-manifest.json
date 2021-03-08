@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/todo-app/static/css/main.4864ad50.chunk.css",
+    "main.css": "/todo-app/static/css/main.9d753ab4.chunk.css",
     "main.js": "/todo-app/static/js/main.e951aca1.chunk.js",
     "main.js.map": "/todo-app/static/js/main.e951aca1.chunk.js.map",
     "runtime-main.js": "/todo-app/static/js/runtime-main.53b74c1a.js",
@@ -10,7 +10,7 @@
     "static/js/2.99876468.chunk.js.map": "/todo-app/static/js/2.99876468.chunk.js.map",
     "index.html": "/todo-app/index.html",
     "static/css/2.0978f8b3.chunk.css.map": "/todo-app/static/css/2.0978f8b3.chunk.css.map",
-    "static/css/main.4864ad50.chunk.css.map": "/todo-app/static/css/main.4864ad50.chunk.css.map",
+    "static/css/main.9d753ab4.chunk.css.map": "/todo-app/static/css/main.9d753ab4.chunk.css.map",
     "static/js/2.99876468.chunk.js.LICENSE.txt": "/todo-app/static/js/2.99876468.chunk.js.LICENSE.txt",
     "static/media/TodoCreator.scss": "/todo-app/static/media/add-todo.31fa1c8a.svg",
     "static/media/TodoEditor.scss": "/todo-app/static/media/checkmark.9604090e.svg",
@@ -21,7 +21,7 @@
     "static/js/runtime-main.53b74c1a.js",
     "static/css/2.0978f8b3.chunk.css",
     "static/js/2.99876468.chunk.js",
-    "static/css/main.4864ad50.chunk.css",
+    "static/css/main.9d753ab4.chunk.css",
     "static/js/main.e951aca1.chunk.js"
   ]
 }
