@@ -3,7 +3,7 @@ import './TodoList.scss';
 const TodoList = ({ todos, handleTodoClick, upTodo, downTodo, handleEditBtnClick, handleDeleteBtnClick }) => {
   return (
     <ul className="todo__list">
-      {todos.map(todo => {
+      {todos.map((todo, index) => {
         return (
           <li className={`todo__item ${todo.type}`} key={todo.id}>
             <input type="checkbox" id={todo.id} onChange={() => handleTodoClick(todo)} checked={todo.completed} />
@@ -21,6 +21,7 @@ const TodoList = ({ todos, handleTodoClick, upTodo, downTodo, handleEditBtnClick
               )}
               {todo.text}
             </label>
+            <span className="todo-number">{index + 1}</span>
             <div className="move-todo-block">
               <button type="button" className="move-todo up-todo" onClick={() => upTodo(todos.indexOf(todo))}></button>
               <button

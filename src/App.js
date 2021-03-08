@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import 'reset-css';
 import './App.scss';
-import Header from './components/Header/Header';
-import TodoList from './components/TodoList/TodoList';
-import LocalStorageInfo from './components/LocalStorageInfo/LocalStorageInfo';
-import Backdrop from './components/Backdrop/Backdrop';
-import TodoCreator from './components/TodoCreator/TodoCreator';
-import TodoEditor from './components/TodoEditor/TodoEditor';
+import Header from './Components/Header/Header';
+import TodoList from './Components/TodoList/TodoList';
+import LocalStorageInfo from './Components/LocalStorageInfo/LocalStorageInfo';
+import Backdrop from './Components/Backdrop/Backdrop';
+import TodoCreator from './Components/TodoCreator/TodoCreator';
+import TodoEditor from './Components/TodoEditor/TodoEditor';
 
 // const defaultTodos = [
 //   {
