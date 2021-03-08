@@ -3,7 +3,6 @@ import 'reset-css';
 import './App.scss';
 import Header from './components/Header/Header';
 import TodoList from './components/TodoList/TodoList';
-import Todo from './components/Todo/Todo';
 import TodoCreator from './components/TodoCreator/TodoCreator';
 import TodoEditor from './components/TodoEditor/TodoEditor';
 import Backdrop from './components/Backdrop/Backdrop';
@@ -122,16 +121,14 @@ const App = () => {
   return (
     <>
       <Header todos={todos} />
-      <TodoList>
-        <Todo
-          todos={todos}
-          handleTodoClick={handleTodoClick}
-          upTodo={upTodo}
-          downTodo={downTodo}
-          handleEditBtnClick={handleEditBtnClick}
-          handleDeleteBtnClick={handleDeleteBtnClick}
-        />
-      </TodoList>
+      <TodoList
+        todos={todos}
+        handleTodoClick={handleTodoClick}
+        upTodo={upTodo}
+        downTodo={downTodo}
+        handleEditBtnClick={handleEditBtnClick}
+        handleDeleteBtnClick={handleDeleteBtnClick}
+      />
       <Backdrop isTodoEditing={isTodoEditing} closeEditingForm={closeEditingForm} />
       {!isTodoEditing ? (
         <TodoCreator handleTodoCreating={handleTodoCreating} />
@@ -141,7 +138,7 @@ const App = () => {
       <p className="localStorage__text">
         Для хранения данных <span className="localStorage__text active">не используется бекенд!</span> Все данные
         хранятся в локальном хранилище браузера - Local Storage.{' '}
-        <span className="localStorage__text active">Не очищайте Local Storage</span>, чтобы не удалить все todos.
+        <span className="localStorage__text active">Не очищайте Local Storage</span> во избежание удаления всех todos.
       </p>
     </>
   );
