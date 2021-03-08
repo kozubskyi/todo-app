@@ -1,0 +1,10 @@
+.localStorage__text {
+  font-size: 12px;
+  color: var(--light-grey-color);
+
+  margin-top: 10px;
+
+  &.active {
+    color: var(--blue-color);
+  }
+}
