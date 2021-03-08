@@ -138,6 +138,11 @@ const App = () => {
       ) : (
         <TodoEditor editingTodo={editingTodo} handleTodoEdit={handleTodoEdit} />
       )}
+      <p className="localStorage__text">
+        Для хранения данных <span className="localStorage__text active">не используется бекенд!</span> Все данные
+        хранятся в локальном хранилище браузера - Local Storage.{' '}
+        <span className="localStorage__text active">Не очищайте Local Storage</span>, чтобы не удалить все todos.
+      </p>
     </>
   );
 };

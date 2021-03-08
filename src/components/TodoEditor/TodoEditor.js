@@ -5,7 +5,9 @@ const TodoEditor = ({ editingTodo, handleTodoEdit }) => {
   const [text, setText] = useState(editingTodo.text);
   const [type, setType] = useState(editingTodo.type);
 
-  const changeInputValue = event => setText(event.target.value);
+  const changeInputValue = event => {
+    setText(event.target.value);
+  };
 
   const onFormSubmit = event => {
     event.preventDefault();

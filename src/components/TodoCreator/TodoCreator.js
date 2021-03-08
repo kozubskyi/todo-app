@@ -20,7 +20,9 @@ const TodoCreator = ({ handleTodoCreating }) => {
     'Купить вкусняшек',
   ]);
 
-  const changeInputValue = event => setText(event.target.value);
+  const changeInputValue = event => {
+    setText(event.target.value);
+  };
 
   const onFormSubmit = event => {
     event.preventDefault();
@@ -34,7 +36,9 @@ const TodoCreator = ({ handleTodoCreating }) => {
     setType('standart');
   };
 
-  const getRandomInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+  const getRandomInRange = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
 
   const changeTodoType = event => {
     event.target.value === 'standart' && setType('important');
