@@ -176,19 +176,22 @@
   background-image: url(../../images/cross.svg);
 }
 
-//* Стили от CSSTransition
+// Animations CCSTransition
 
-.item-enter {
+.todo-enter {
   opacity: 0;
 }
-.item-enter-active {
+
+.todo-enter-active {
   opacity: 1;
-  transition: opacity 500ms ease-in;
+  transition: opacity 500ms linear;
 }
-.item-exit {
+
+.todo-exit {
   opacity: 1;
 }
-.item-exit-active {
+
+.todo-exit-active {
   opacity: 0;
-  transition: opacity 500ms ease-in;
+  transition: opacity 500ms linear;
 }
