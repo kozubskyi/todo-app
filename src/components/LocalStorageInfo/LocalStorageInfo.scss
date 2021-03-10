@@ -2,9 +2,7 @@
   font-size: 12px;
   color: var(--light-grey-color);
 
-  margin-top: 10px;
-
-  &.active {
+  &__active {
     color: var(--blue-color);
   }
 }
